@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window roundcorner="3,3">
+  <Default name="Menu" value="inset=&quot;2,2,2,2&quot; itemtextpadding=&quot;30,0,0,0&quot; bkimage=&quot;file='menu_bk.png' corner='30,8,8,8'&quot; hole=&quot;false&quot; itemtextcolor=&quot;#FFC8C6C6&quot; itemselectedtextcolor=&quot;#FFFFFFFF&quot; itemselectedimage=&quot;menu_selected.png&quot;" />
+  <Menu>
+    <MenuElement name="Menu_Front" text=" 锁住最前" frontimg="file='menu_lock.png' dest='2,2,22,22'" checkimg="file='menu_check.png' dest='4,4,20,20'" />
+    <MenuElement text="" height="3" enabled="false">
+	      <HorizontalLayout>
+		        <Label width="26"/>
+		        <Label bkimage="file='menu_separtor.png'"/>
+		        <Label width="8"/>
+	      </HorizontalLayout>
+    </MenuElement>
+    <MenuElement name="Menu_System" text=" 系统设置 " frontimg="file='menu_setting.png' dest='2,2,22,22'" >
+    		<HorizontalLayout>
+        		<Label />
+        		<Label width="20" bkimage="file='menu_arrow.png' dest='0,7,5,16'"/>
+      	</HorizontalLayout>
+      	<MenuElement name="Menu_AutoLogin" text="自动登录" checkimg="file='menu_check.png' dest='4,4,20,20'" />
+      	<MenuElement name="Menu_OpenLogin" text="开机启动" checkimg="file='menu_check.png' dest='4,4,20,20'" />
+      	<MenuElement name="Menu_More" text="更多设置" enabled="false" frontimg="file='menu_more.png' dest='4,4,20,20'" />
+    </MenuElement>
+    <MenuElement text="" height="3" enabled="false">
+	      <HorizontalLayout>
+		        <Label width="26"/>
+		        <Label bkimage="file='menu_separtor.png'"/>
+		        <Label width="8"/>
+	      </HorizontalLayout>
+    </MenuElement>
+    <MenuElement name="Menu_Update" text=" 检测更新" frontimg="file='menu_update.png' dest='6,4,16,18'" />
+  </Menu>
+</Window>

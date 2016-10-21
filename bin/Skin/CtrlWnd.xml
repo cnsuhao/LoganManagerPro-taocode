@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="693,321" caption="0,0,0,25" roundcorner="7,7">
+    <Font name="宋体" size="12" bold="false" italic="false" default="true" />
+    <Font name="宋体" size="14" bold="false" italic="false" />
+    <Font name="宋体" size="16" bold="false" italic="false" />
+    <Default name="VScrollBar" value="button1normalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,0,16,16&apos;&quot; button1hotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,0,32,16,16&apos;&quot; button1pushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,0,48,16&apos;&quot; button2normalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,32,16,48&apos;&quot; button2hotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,32,32,48&apos;&quot; button2pushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,32,48,48&apos;&quot; thumbnormalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,48,16,64&apos; corner=&apos;0,2,0,2&apos;&quot; thumbhotimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;16,48,32,64&apos; corner=&apos;0,2,0,2&apos;&quot; thumbpushedimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;32,48,48,64&apos; corner=&apos;0,2,0,2&apos;&quot; bknormalimage=&quot;file=&apos;scrollbar.png&apos; source=&apos;0,16,16,32&apos;&quot;" />
+    <VerticalLayout bordersize="0" float="false" width="693" height="321" bkimage="CtrlWnd_background.png">
+        <HorizontalLayout bordersize="0" float="false" width="693" height="25">
+            <Button name="btn_close" bordersize="0" float="true" pos="656,0,0,0" width="29" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_close.png&apos; source=&apos;0,0,29,20&apos;" hotimage="file=&apos;btn_close.png&apos; source=&apos;29,0,58,20&apos;" pushedimage="file=&apos;btn_close.png&apos; source=&apos;58,0,87,20&apos;" />
+            <Text name="text_title" bordersize="0" float="true" pos="10,6,0,0" width="200" height="18" textpadding="2,0,2,0" textcolor="#FFC8C6C6" disabledtextcolor="#FFA7A6AA" font="2" align="wrap" />
+        </HorizontalLayout>
+        <HorizontalLayout bordersize="0" float="false" width="693" height="295">
+            <VerticalLayout bordersize="0" float="false" width="440" height="295">
+                <HorizontalLayout bordersize="0" float="false" width="440" height="45">
+                    <Option name="opt_power" bordersize="0" float="true" pos="12,9,0,0" width="90" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_power.png&apos; source=&apos;0,0,90,32&apos;" hotimage="file=&apos;opt_power.png&apos; source=&apos;90,0,180,32&apos;" selectedimage="file=&apos;opt_power.png&apos; source=&apos;180,0,270,32&apos;" disabledimage="file=&apos;opt_power.png&apos; source=&apos;180,0,270,32&apos;" />
+                    <Option name="opt_camera" bordersize="0" float="true" pos="102,9,0,0" width="90" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_camera.png&apos; source=&apos;0,0,90,32&apos;" hotimage="file=&apos;opt_camera.png&apos; source=&apos;90,0,180,32&apos;" selectedimage="file=&apos;opt_camera.png&apos; source=&apos;180,0,270,32&apos;" disabledimage="file=&apos;opt_camera.png&apos; source=&apos;180,0,270,32&apos;" />
+                </HorizontalLayout>
+                <AnimationTabLayout name="tab_switch" bordersize="0" float="false" width="440" height="210">
+                    <HorizontalLayout bordersize="0" float="false" width="440" height="210">
+                        <Container name="contain_camera" bordersize="0" float="true" pos="15,3,0,0" width="410" height="70" bkimage="contain_camera.jpg">
+                            <Text text="开关:" bordersize="0" float="true" pos="15,35,0,0" width="40" height="17" textpadding="2,0,2,0" textcolor="#FFC6C6C8" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                            <Option name="opt_camera_on-off" bordersize="0" float="true" pos="63,28,0,0" width="90" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;0,0,90,32&apos;" hotimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;90,0,180,32&apos;" hotimage2="file=&apos;opt_on-off1.jpg&apos; source=&apos;270,0,360,32&apos;" selectedimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;180,0,270,32&apos;" />
+                            <Text text="输入源:" bordersize="0" float="true" pos="187,35,0,0" width="56" height="17" textpadding="2,0,2,0" textcolor="#FFC6C6C8" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                            <Option name="opt_camera_left" bordersize="0" float="true" pos="250,33,0,0" width="20" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_on-off2.png&apos; source=&apos;0,0,20,20&apos;" hotimage="file=&apos;opt_on-off2.png&apos; source=&apos;20,0,40,20&apos;" hotimage2="file=&apos;opt_on-off2.png&apos; source=&apos;60,0,80,20&apos;" selectedimage="file=&apos;opt_on-off2.png&apos; source=&apos;40,0,60,20&apos;" />
+                            <Text text="左声道" bordersize="0" float="true" pos="270,35,0,0" width="50" height="17" textpadding="2,0,2,0" textcolor="#FFC8C6C6" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                            <Option name="opt_camera_right" bordersize="0" float="true" pos="331,33,0,0" width="20" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_on-off2.png&apos; source=&apos;0,0,20,20&apos;" hotimage="file=&apos;opt_on-off2.png&apos; source=&apos;20,0,40,20&apos;" hotimage2="file=&apos;opt_on-off2.png&apos; source=&apos;60,0,80,20&apos;" selectedimage="file=&apos;opt_on-off2.png&apos; source=&apos;40,0,60,20&apos;" />
+                            <Text text="右声道" bordersize="0" float="true" pos="351,35,0,0" width="50" height="17" textpadding="2,0,2,0" textcolor="#FFC8C6C6" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                        </Container>
+                        <Container name="contain_projector" bordersize="0" float="true" pos="21,94,0,0" width="192" height="70" bkimage="contain_projector.jpg">
+                            <Text text="开关:" bordersize="0" float="true" pos="16,35,0,0" width="40" height="17" textpadding="2,0,2,0" textcolor="#FFC6C6C8" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                            <Option name="opt_projector" bordersize="0" float="true" pos="63,27,0,0" width="90" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;0,0,90,32&apos;" hotimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;90,0,180,32&apos;" hotimage2="file=&apos;opt_on-off1.jpg&apos; source=&apos;270,0,360,32&apos;" selectedimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;180,0,270,32&apos;" />
+                        </Container>
+                        <Container name="contain_computer" bordersize="0" float="true" pos="228,94,0,0" width="192" height="70" bkimage="contain_computer.jpg">
+                            <Text text="开关:" bordersize="0" float="true" pos="15,35,0,0" width="40" height="17" textpadding="2,0,2,0" textcolor="#FFC6C6C8" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                            <Option name="opt_computer" bordersize="0" float="true" pos="64,28,0,0" width="90" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;0,0,90,32&apos;" hotimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;90,0,180,32&apos;" hotimage2="file=&apos;opt_on-off1.jpg&apos; source=&apos;270,0,360,32&apos;" selectedimage="file=&apos;opt_on-off1.jpg&apos; source=&apos;180,0,270,32&apos;" />
+                        </Container>
+                    </HorizontalLayout>
+                    <HorizontalLayout bordersize="0" float="false" width="440" height="210">
+                        <HorizontalLayout bordersize="1" float="true" pos="20,23,0,0" width="400" height="120" bordercolor="#FF313131">
+                            <Container bordersize="0" float="true" pos="37,10,0,0" width="100" height="100" bkimage="contain_option.jpg">
+                                <Button name="btn_up" bordersize="0" float="true" pos="34,6,0,0" width="30" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CtrlWnd_btn_up.png&apos; source=&apos;0,0,30,30&apos;" hotimage="file=&apos;CtrlWnd_btn_up.png&apos; source=&apos;30,0,60,30&apos;" pushedimage="file=&apos;CtrlWnd_btn_up.png&apos; source=&apos;60,0,90,30&apos;" />
+                                <Button name="btn_down" bordersize="0" float="true" pos="35,66,0,0" width="30" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CtrlWnd_btn_down.png&apos; source=&apos;0,0,30,30&apos;" hotimage="file=&apos;CtrlWnd_btn_down.png&apos; source=&apos;30,0,60,30&apos;" pushedimage="file=&apos;CtrlWnd_btn_down.png&apos; source=&apos;60,0,90,30&apos;" />
+                                <Button name="btn_left" bordersize="0" float="true" pos="4,36,0,0" width="30" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CtrlWnd_btn_left.png&apos; source=&apos;0,0,30,30&apos;" hotimage="file=&apos;CtrlWnd_btn_left.png&apos; source=&apos;30,0,60,30&apos;" pushedimage="file=&apos;CtrlWnd_btn_left.png&apos; source=&apos;60,0,90,30&apos;" />
+                                <Button name="btn_right" bordersize="0" float="true" pos="65,36,0,0" width="30" height="30" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CtrlWnd_btn_right.png&apos; source=&apos;0,0,30,30&apos;" hotimage="file=&apos;CtrlWnd_btn_right.png&apos; source=&apos;30,0,60,30&apos;" pushedimage="file=&apos;CtrlWnd_btn_right.png&apos; source=&apos;60,0,90,30&apos;" />
+                                <Button name="btn_home" tooltip="复位" bordersize="0" float="true" pos="37,38,0,0" width="26" height="26" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CtrlWnd_btn_home.png&apos; source=&apos;0,0,26,26&apos;" hotimage="file=&apos;CtrlWnd_btn_home.png&apos; source=&apos;26,0,52,26&apos;" pushedimage="file=&apos;CtrlWnd_btn_home.png&apos; source=&apos;52,0,78,26&apos;" />
+                            </Container>
+                            <Text text="焦距:" bordersize="0" float="true" pos="150,23,0,0" width="46" height="17" textpadding="2,0,2,0" textcolor="#FFC6C6C8" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                            <Text text="速度:" bordersize="0" float="true" pos="150,72,0,0" width="46" height="17" textpadding="2,0,2,0" textcolor="#FFC6C6C8" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+                            <Button name="btn_add" tooltip="放大" bordersize="0" float="true" pos="207,17,0,0" width="37" height="29" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_add.png&apos; source=&apos;0,0,37,29&apos;" hotimage="file=&apos;btn_add.png&apos; source=&apos;37,0,74,29&apos;" pushedimage="file=&apos;btn_add.png&apos; source=&apos;74,0,111,29&apos;" />
+                            <Button name="btn_sub" tooltip="缩小" bordersize="0" float="true" pos="244,17,0,0" width="37" height="29" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_sub.png&apos; source=&apos;0,0,37,29&apos;" hotimage="file=&apos;btn_sub.png&apos; source=&apos;37,0,74,29&apos;" pushedimage="file=&apos;btn_sub.png&apos; source=&apos;74,0,111,29&apos;" />
+                            <Slider name="slider_rate" bordersize="0" float="true" pos="195,67,0,0" width="188" height="26" bkimage="slider_nor.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" min="0" max="100" value="0" hor="true" thumbimage="file=&apos;slider_thumb.png&apos; source=&apos;0,0,24,26&apos;" thumbhotimage="file=&apos;slider_thumb.png&apos; source=&apos;24,0,48,26&apos;" thumbpushedimage="file=&apos;slider_thumb.png&apos; source=&apos;48,0,72,26&apos;" thumbsize="24,26" />
+                        </HorizontalLayout>
+                    </HorizontalLayout>
+                </AnimationTabLayout>
+                <HorizontalLayout bordersize="0" float="false" width="440" height="40">
+                    <Button name="btn_back" bordersize="0" float="true" pos="10,8,0,0" width="63" height="25" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CtrlWnd_btn_back.png&apos; source=&apos;0,0,63,25&apos;" hotimage="file=&apos;CtrlWnd_btn_back.png&apos; source=&apos;63,0,126,25&apos;" pushedimage="file=&apos;CtrlWnd_btn_back.png&apos; source=&apos;126,0,189,25&apos;" />
+                    <Button name="btn_off" bordersize="0" float="true" pos="365,8,0,0" width="63" height="25" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CtrlWnd_btn_off.png&apos; source=&apos;0,0,63,25&apos;" hotimage="file=&apos;CtrlWnd_btn_off.png&apos; source=&apos;63,0,126,25&apos;" pushedimage="file=&apos;CtrlWnd_btn_off.png&apos; source=&apos;126,0,189,25&apos;" />
+                </HorizontalLayout>
+            </VerticalLayout>
+            <VerticalLayout bordersize="0" float="false" width="250" height="295">
+                <HorizontalLayout bordersize="0" float="false" width="250" height="40">
+                    <Text text="课表情况:" bordersize="0" float="true" pos="2,15,0,0" width="75" height="18" textpadding="2,0,2,0" textcolor="#FFC8C6C6" disabledtextcolor="#FFA7A6AA" font="1" align="centerwrap" />
+                    <BtnCalendar name="btn_calendar" bordersize="0" float="true" pos="77,11,0,0" width="97" height="21" textcolor="#FFC8C6C6" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_calendar.png&apos; source=&apos;0,0,97,21&apos;" hotimage="file=&apos;btn_calendar.png&apos; source=&apos;97,0,194,21&apos;" pushedimage="file=&apos;btn_calendar.png&apos; source=&apos;194,0,292,21&apos;" />
+                </HorizontalLayout>
+                <VerticalLayout bordersize="0" float="false" width="240" height="248" bkimage="time_table_background.png">
+                    <HorizontalLayout bordersize="0" float="false" width="240" height="5" />
+                    <HorizontalLayout bordersize="0" float="false" width="240" height="238">
+                        <HorizontalLayout bordersize="0" float="false" width="5" height="238" />
+                        <VerticalLayout bordersize="0" float="false" width="230" height="238" >
+                        		<RichList float="false" width="230" vscrollbar="true" name="list_timetable" pos="0,0,0,0" bordersize="0" height="238" />
+                        </VerticalLayout>
+                        <HorizontalLayout bordersize="0" float="false" width="5" height="238" />
+                    </HorizontalLayout>
+                    <HorizontalLayout bordersize="0" float="false" width="240" height="5" />
+                </VerticalLayout>
+                <HorizontalLayout bordersize="0" float="false" width="250" height="7" />
+            </VerticalLayout>
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="180,205">
+    <Font name="黑体" size="13" bold="true" italic="false" />
+    <VerticalLayout name="VerticalLayoutUI1" width="149" height="175" bkcolor="#FF9B9B9B">
+        <HorizontalLayout name="HorizontalLayoutUI1" width="180" height="28" bkcolor="#FF4B4B4B">
+            <Button name="lastMonBtn" float="true" pos="2,3,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CMonLast.png&apos; source=&apos;0,0,24,24&apos; corner=&apos;5,5,5,5&apos;" hotimage="file=&apos;CMonLast.png&apos; source=&apos;0,24,24,48&apos; corner=&apos;5,5,5,5&apos;" pushedimage="file=&apos;CMonLast.png&apos; source=&apos;0,48,24,72&apos; corner=&apos;5,5,5,5&apos;" />
+            <Label name="yearLabel" float="true" pos="29,5,0,0" width="120" height="19" textcolor="#00FFFFFF" disabledtextcolor="#FFA7A6AA" font="0" align="center" />
+            <Button name="nextMonBtn" float="true" pos="152,3,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;CMonNext.png&apos; source=&apos;0,0,24,24&apos; corner=&apos;5,5,5,5&apos;" hotimage="file=&apos;CMonNext.png&apos; source=&apos;0,24,24,48&apos; corner=&apos;5,5,5,5&apos;" pushedimage="file=&apos;CMonNext.png&apos; source=&apos;0,48,24,72&apos; corner=&apos;5,5,5,5&apos;" />
+        </HorizontalLayout>
+        <HorizontalLayout name="HorizontalLayoutUI2" height="25" inset="2,0,2,0">
+            <VerticalLayout name="VerticalLayoutUI2" height="25" bkimage="file=&apos;calendar.png&apos; source=&apos;0,0,24,24&apos; corner=&apos;5,5,5,5&apos;">
+                <Label name="LabelUI1" text="日" float="true" pos="0,0,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label name="LabelUI2" text="一" float="true" pos="25,0,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label name="LabelUI3" text="二" float="true" pos="50,0,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label name="LabelUI4" text="三" float="true" pos="75,0,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label name="LabelUI5" text="四" float="true" pos="100,0,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label name="LabelUI6" text="五" float="true" pos="125,0,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label name="LabelUI7" text="六" float="true" pos="150,0,0,0" width="24" height="24" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+            </VerticalLayout>
+        </HorizontalLayout>
+        <Container name="calendarContainer" bkcolor="#00000255" />
+    </VerticalLayout>
+</Window>
