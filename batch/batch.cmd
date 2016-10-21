@@ -1,0 +1,15 @@
+@echo off
+
+del "../*.ncb"
+del "../Net/Debug/*.*"
+rd /s /q "../Net/Debug"
+del "../LoganUI/Build/*.*"
+rd /s /q "../LoganUI/Build"
+rd /s /q "../Lib/obj"
+del "../Lib/*.exp"
+del "../bin/*.pdb"
+del "../bin/*.ilk"
+del "../LoganManager/Debug/*.*"
+del "../LoganManager/Release/*.*"
+rd  /s /q "../LoganManager/Debug"
+rd /s /q "../LoganManager/Release"

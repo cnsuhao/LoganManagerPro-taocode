@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="260,110" caption="0,0,0,25" roundcorner="3,3">
+    <VerticalLayout bordersize="0" float="false" width="260" height="110" bkimage="Message_background.png">
+        <Button name="btn_close" bordersize="0" float="true" pos="227,0,0,0" width="29" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_close.png&apos; source=&apos;0,0,29,20&apos;" hotimage="file=&apos;btn_close.png&apos; source=&apos;29,0,58,20&apos;" pushedimage="file=&apos;btn_close.png&apos; source=&apos;58,0,87,20&apos;" />
+        <Text name="text_context" bordersize="0" float="true" pos="2,47,0,0" width="256" height="20" textpadding="2,0,2,0" textcolor="#FFC8C6C6" align="wrap" />
+        <Button name="btn_ok" bordersize="0" float="true" pos="63,77,0,0" width="60" height="25" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;Message_Ok.png&apos; source=&apos;0,0,60,25&apos;" hotimage="file=&apos;Message_Ok.png&apos; source=&apos;60,0,120,25&apos;" pushedimage="file=&apos;Message_Ok.png&apos; source=&apos;120,0,180,25&apos;" />
+        <Button name="btn_cancle" bordersize="0" float="true" pos="138,77,0,0" width="60" height="25" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;Message_Cancle.png&apos; source=&apos;0,0,60,25&apos;" hotimage="file=&apos;Message_Cancle.png&apos; source=&apos;60,0,120,25&apos;" pushedimage="file=&apos;Message_Cancle.png&apos; source=&apos;120,0,180,25&apos;" />
+    </VerticalLayout>
+</Window>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window roundcorner="3,3" >
+  <Menu>
+    <MenuElement name="lurl" text="直播流"  />
+	<MenuElement name="durl" text=" 导播流"  />
+    <MenuElement name="sublurl" text="直播标清流"  />
+  </Menu>
+</Window>

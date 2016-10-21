@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="489,256" caption="0,0,0,35" roundcorner="7,7">
+    <Font name="宋体" size="12" bold="false" italic="false" default="true" />
+    <Font name="宋体" size="14" bold="false" italic="false" />
+    <Font name="宋体" size="16" bold="false" italic="false" />
+    <VerticalLayout bordersize="0" float="false" width="60" height="49" bkimage="login_bg.png">
+        <HorizontalLayout bordersize="0" float="false" width="489" height="35">
+            <Button name="btn_set" tooltip="服务器设置" bordersize="0" float="true" pos="399,0,0,0" width="28" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_set.png&apos; source=&apos;0,0,28,20&apos;" hotimage="file=&apos;btn_set.png&apos; source=&apos;28,0,56,20&apos;" pushedimage="file=&apos;btn_set.png&apos; source=&apos;56,0,84,20&apos;" />
+            <Button name="btn_min" tooltip="最小化" bordersize="0" float="true" pos="427,0,0,0" width="28" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_min.png&apos; source=&apos;0,0,28,20&apos;" hotimage="file=&apos;btn_min.png&apos; source=&apos;28,0,56,20&apos;" pushedimage="file=&apos;btn_min.png&apos; source=&apos;56,0,84,20&apos;" />
+            <Button name="btn_close" tooltip="关闭" bordersize="0" float="true" pos="455,0,0,0" width="29" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_close.png&apos; source=&apos;0,0,29,20&apos;" hotimage="file=&apos;btn_close.png&apos; source=&apos;29,0,58,20&apos;" pushedimage="file=&apos;btn_close.png&apos; source=&apos;58,0,87,20&apos;" />
+        </HorizontalLayout>
+        <AnimationTabLayout name="tab_login" bordersize="0" float="false" width="489" height="221">
+            <HorizontalLayout bordersize="0" float="true" pos="46,19,0,0" width="400" height="180">
+                <Label bordersize="0" float="true" pos="166,5,0,0" width="81" height="27" bkimage="login_lab_user.jpg" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label bordersize="0" float="true" pos="50,39,0,0" width="30" height="33" bkimage="file=&apos;combo_name.png&apos; source=&apos;0,0,30,33&apos;" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label bordersize="0" float="true" pos="50,79,0,0" width="30" height="33" bkimage="file=&apos;edit_password.png&apos; source=&apos;0,0,30,33&apos;" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <ComboEdit name="edit_user" float="true" dropboxbordercolor="#FF5B5B5B" itemdisabledtextcolor="#FFCCCCCC" itemhotbkcolor="#FFE9F5FF" itemselectedbkcolor="#FFC1E3FF" width="267" itemhottextcolor="#FF000000"  dropboxsize="0,150" pushedimage="combo_name_push.png" itemtextcolor="#FF000000" itemdisabledbkcolor="#FFFFFFFF" pos="80,39,0,0" itemselectedtextcolor="#FF000000" bordersize="0" hotimage="combo_name_hor.png" normalimage="combo_name_nor.png" height="33" />
+                <Edit name="edit_pass" bordersize="0" float="true" pos="80,79,0,0" width="267" height="33" bkimage="file=&apos;edit_password.png&apos; source=&apos;33,0,300,33&apos;" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" password="true" bkcolor="#00000000" />
+                <Button name="btn_login" bordersize="0" float="true" pos="107,141,0,0" width="186" height="37" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_login.png&apos; source=&apos;0,0,186,37&apos;" hotimage="file=&apos;btn_login.png&apos; source=&apos;186,0,372,37&apos;" pushedimage="file=&apos;btn_login.png&apos; source=&apos;372,0,558,37&apos;" />
+                <Option name="opt_rem" bordersize="0" float="true" pos="107,118,0,0" width="75" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_rem.png&apos; source=&apos;0,0,75,15&apos;" hotimage="file=&apos;opt_rem.png&apos; source=&apos;75,0,150,15&apos;" hotimage2="file=&apos;opt_rem.png&apos; source=&apos;225,0,300,15&apos;" pushedimage="file=&apos;opt_rem.png&apos; source=&apos;150,0,225,15&apos;" selectedimage="file=&apos;opt_rem.png&apos; source=&apos;150,0,225,15&apos;" />
+                <Option name="opt_auto" bordersize="0" float="true" pos="218,117,0,0" width="75" height="15" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;opt_auto.png&apos; source=&apos;0,0,75,15&apos;" hotimage="file=&apos;opt_auto.png&apos; source=&apos;75,0,150,15&apos;" hotimage2="file=&apos;opt_auto.png&apos; source=&apos;225,0,300,15&apos;" pushedimage="file=&apos;opt_auto.png&apos; source=&apos;150,0,225,15&apos;" selectedimage="file=&apos;opt_auto.png&apos; source=&apos;150,0,225,15&apos;" />
+            </HorizontalLayout>
+            <HorizontalLayout bordersize="0" float="true" pos="46,19,0,0" width="400" height="180">
+                <Label bordersize="0" float="true" pos="3,9,0,0" width="94" height="25" bkimage="login_lab_server.jpg" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Text text="IP:" bordersize="0" float="true" pos="46,56,0,0" width="30" height="22" textpadding="2,0,2,0" textcolor="#FFC8C6C6" disabledtextcolor="#FFA7A6AA" font="1" align="centerwrap" />
+                <Text text="端口:" bordersize="0" float="true" pos="36,93,0,0" width="40" height="22" textpadding="2,0,2,0" textcolor="#FFC8C6C6" disabledtextcolor="#FFA7A6AA" font="1" align="centerwrap" />
+                <Edit name="edit_ip" bordersize="0" float="true" pos="80,49,0,0" width="183" height="29" bkimage="edit_ip.png" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" bkcolor="#00000000" />
+                <Edit name="edit_port" bordersize="0" float="true" pos="80,87,0,0" width="78" height="29" bkimage="edit_port.png" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" bkcolor="#00000000" />
+                <Button name="btn_ok" bordersize="0" float="true" pos="80,141,0,0" width="69" height="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_ok.png&apos; source=&apos;0,0,69,28&apos;" hotimage="file=&apos;btn_ok.png&apos; source=&apos;69,0,138,38&apos;" pushedimage="file=&apos;btn_ok.png&apos; source=&apos;138,0,207,38&apos;" />
+                <Button name="btn_cancle" bordersize="0" float="true" pos="167,141,0,0" width="69" height="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_cancle.png&apos; source=&apos;0,0,69,38&apos;" hotimage="file=&apos;btn_cancle.png&apos; source=&apos;69,0,138,38&apos;" pushedimage="file=&apos;btn_cancle.png&apos; source=&apos;138,0,207,38&apos;" />
+            </HorizontalLayout>
+            <HorizontalLayout bordersize="0" float="true" pos="46,19,0,0" width="400" height="180">
+                <Button name="btn_logout" bordersize="0" float="true" pos="167,141,0,0" width="69" height="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_cancle.png&apos; source=&apos;0,0,69,38&apos;" hotimage="file=&apos;btn_cancle.png&apos; source=&apos;69,0,138,38&apos;" pushedimage="file=&apos;btn_cancle.png&apos; source=&apos;138,0,207,38&apos;" />
+                <Button float="true" textcolor="#FF000000" align="center" width="60" name="btn_gif_login" disabledtextcolor="#FFA7A6AA" pos="170,37,0,0" bordersize="0" height="60" normalimage="loading.gif" />
+                <Text text="正在登录..." bordersize="0" float="true" pos="162,120,0,0" width="90" height="18" textpadding="2,0,2,0" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+            </HorizontalLayout>
+       		<HorizontalLayout bordersize="0" float="true" pos="46,19,0,0" width="400" height="180">
+                <Button name="btn_error_ok" bordersize="0" float="true" pos="168,120,0,0" width="69" height="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_ok.png&apos; source=&apos;0,0,69,28&apos;" hotimage="file=&apos;btn_ok.png&apos; source=&apos;69,0,138,38&apos;" pushedimage="file=&apos;btn_ok.png&apos; source=&apos;138,0,207,38&apos;" />
+                <Label bordersize="0" float="true" pos="114,38,0,0" width="45" height="80" bkimage="login_error.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Text name="text_error" text="用户名与密码错误" bordersize="0" float="true" pos="168,40,0,0" width="230" height="18" textpadding="2,0,2,0" textcolor="#fffcf9c8" font="1" align="wrap" />
+                <Text text="请重新登录" bordersize="0" float="true" pos="168,63,0,0" width="132" height="18" textpadding="2,0,2,0" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="1" align="wrap" />
+            </HorizontalLayout>
+        </AnimationTabLayout>
+    </VerticalLayout>
+</Window>
