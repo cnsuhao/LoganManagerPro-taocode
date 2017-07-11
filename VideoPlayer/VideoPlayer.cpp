@@ -237,7 +237,19 @@ bool CVideoPlayer::Seek(int64_t nPos)
 bool CVideoPlayer::InitFfmpeg()
 {
 	bool bRet = false;
-
+	//av_register_all();
+	//avcodec_register_all();
+	//int dbug1=1;
+	//char buf[1024];
+	//int err_code=avformat_open_input(&m_pFmtCtx, m_strPath.c_str(), NULL, NULL);
+	//av_strerror(err_code, buf, 1024);
+	//char res[2000];
+	//sprintf(res,"Couldn't open file %s: %d(%s)", m_strPath.c_str(), err_code, buf);
+	//MessageBoxA(NULL,res,0,0);
+	//return -1; 
+	//Sleep(2000);
+	//int dbug2=1;
+	//dbug2=avformat_find_stream_info(m_pFmtCtx, NULL);
 	if(avformat_open_input(&m_pFmtCtx, m_strPath.c_str(), NULL, NULL) == 0 &&
 		avformat_find_stream_info(m_pFmtCtx, NULL) >= 0) 
 	{

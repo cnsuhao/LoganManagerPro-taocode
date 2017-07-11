@@ -637,15 +637,25 @@ namespace DuiLib
 		m_bDoorOpen = false;
 		m_bProjectorOpen = false;
 		m_bSelect = false;
+#if   defined(VLC_VIDEO)
 		player=new LoganPlayer();
+#else
+		player = ILivePlayer::GetInstance();
+#endif
+		
 		router=Router::getRouter();
 	}
 
 	CCamCtrolUI::~CCamCtrolUI()
 	{
+#if defined(VLC_VIDEO)
 		if(player)
-		delete player;
+			delete player;
 		player=NULL;
+#else
+		ILivePlayer::ReleaseInstance(player);
+#endif
+		
 
 		DeleteSbuWnd();
 		m_pManager->KillTimer(this);
@@ -699,8 +709,16 @@ namespace DuiLib
 
 			//menu->SelectItem(0);
 		}
+#if defined(VLC_VIDEO)
 		player->setHwnd(GetHwnd());
 		player->mute();//¾²Òô
+#else
+		player->SetHWND(GetHwnd());
+		player->SetMute(true);
+
+#endif
+
+
 	}
 
 	void CCamCtrolUI::InitSubWnd()
@@ -922,7 +940,7 @@ namespace DuiLib
 				// TODO : when cross the test modify volume 20
 				if(m_bVoiceSelect)
 				{	
-					player->setVolume(20);
+					//player->setVolume(20);
 				}
 					
 				//m_pManager->SendNotify(this,_T("CamVoice"));

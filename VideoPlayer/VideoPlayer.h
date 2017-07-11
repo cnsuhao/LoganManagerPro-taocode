@@ -20,7 +20,6 @@ extern "C"
 #include "libavutil/avstring.h"
 #include "libavutil/pixfmt.h"
 #include "libavutil/time.h"
-
 #pragma  comment(lib,"avcodec.lib")
 #pragma  comment(lib,"avformat.lib")
 #pragma  comment(lib,"avutil.lib")

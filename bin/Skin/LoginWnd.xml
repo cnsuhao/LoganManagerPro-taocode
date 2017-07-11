@@ -9,7 +9,7 @@
             <Button name="btn_min" tooltip="最小化" bordersize="0" float="true" pos="427,0,0,0" width="28" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_min.png&apos; source=&apos;0,0,28,20&apos;" hotimage="file=&apos;btn_min.png&apos; source=&apos;28,0,56,20&apos;" pushedimage="file=&apos;btn_min.png&apos; source=&apos;56,0,84,20&apos;" />
             <Button name="btn_close" tooltip="关闭" bordersize="0" float="true" pos="455,0,0,0" width="29" height="20" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_close.png&apos; source=&apos;0,0,29,20&apos;" hotimage="file=&apos;btn_close.png&apos; source=&apos;29,0,58,20&apos;" pushedimage="file=&apos;btn_close.png&apos; source=&apos;58,0,87,20&apos;" />
         </HorizontalLayout>
-        <AnimationTabLayout name="tab_login" bordersize="0" float="false" width="489" height="221">
+        <AnimationTabLayout name="tab_login" bordersize="0" float="false" width="489" height="221" >
             <HorizontalLayout bordersize="0" float="true" pos="46,19,0,0" width="400" height="180">
                 <Label bordersize="0" float="true" pos="166,5,0,0" width="81" height="27" bkimage="login_lab_user.jpg" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
                 <Label bordersize="0" float="true" pos="50,39,0,0" width="30" height="33" bkimage="file=&apos;combo_name.png&apos; source=&apos;0,0,30,33&apos;" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
@@ -26,7 +26,11 @@
                 <Text text="端口:" bordersize="0" float="true" pos="36,93,0,0" width="40" height="22" textpadding="2,0,2,0" textcolor="#FFC8C6C6" disabledtextcolor="#FFA7A6AA" font="1" align="centerwrap" />
                 <Edit name="edit_ip" bordersize="0" float="true" pos="80,49,0,0" width="183" height="29" bkimage="edit_ip.png" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" bkcolor="#00000000" />
                 <Edit name="edit_port" bordersize="0" float="true" pos="80,87,0,0" width="78" height="29" bkimage="edit_port.png" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" bkcolor="#00000000" />
-                <Button name="btn_ok" bordersize="0" float="true" pos="80,141,0,0" width="69" height="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_ok.png&apos; source=&apos;0,0,69,28&apos;" hotimage="file=&apos;btn_ok.png&apos; source=&apos;69,0,138,38&apos;" pushedimage="file=&apos;btn_ok.png&apos; source=&apos;138,0,207,38&apos;" />
+                <Option name="opt_ctrl" bordersize="0" float="true" pos="180,100,0,0" width="14" height="14" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="notselect.png" hotimage="notselect.png"  pushedimage="select.png" selectedimage="select.png"  />
+				<Label text="中控"  bordersize="0" float="true" pos="196,100,0,0" width="30" height="14" textcolor="#FFC8C6C6" />
+				<Option name="opt_local" bordersize="0" float="true" pos="250,100,0,0" width="14" height="14" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="notselect.png" hotimage="notselect.png"  pushedimage="select.png" selectedimage="select.png" selected="true" />
+				<Label text="教室"  bordersize="0" float="true" pos="266,100,0,0" width="30" height="14" textcolor="#FFC8C6C6" />
+				<Button name="btn_ok" bordersize="0" float="true" pos="80,141,0,0" width="69" height="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_ok.png&apos; source=&apos;0,0,69,28&apos;" hotimage="file=&apos;btn_ok.png&apos; source=&apos;69,0,138,38&apos;" pushedimage="file=&apos;btn_ok.png&apos; source=&apos;138,0,207,38&apos;" />
                 <Button name="btn_cancle" bordersize="0" float="true" pos="167,141,0,0" width="69" height="28" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;btn_cancle.png&apos; source=&apos;0,0,69,38&apos;" hotimage="file=&apos;btn_cancle.png&apos; source=&apos;69,0,138,38&apos;" pushedimage="file=&apos;btn_cancle.png&apos; source=&apos;138,0,207,38&apos;" />
             </HorizontalLayout>
             <HorizontalLayout bordersize="0" float="true" pos="46,19,0,0" width="400" height="180">

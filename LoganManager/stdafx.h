@@ -47,13 +47,24 @@ using namespace DuiLib;
 
 
 
-#include "../VideoPlayer/IVideoPlayer.h"
+//#include "../VideoPlayer/IVideoPlayer.h"
+//#ifdef _DEBUG
+//#pragma  comment(lib,"../lib/VideoPlayerD.lib")
+//#else
+//#pragma  comment(lib,"../lib/VideoPlayer.lib")
+//#endif
+
+#include "ILivePlayer.h"
 #ifdef _DEBUG
-#pragma  comment(lib,"../lib/VideoPlayerD.lib")
+#pragma comment(lib,"../lib/LivePlayerD.lib")
 #else
-#pragma  comment(lib,"../lib/VideoPlayer.lib")
+#pragma comment(lib,"../lib/LivePlayer.lib")
 #endif
-
-
 #define WM_SINGLE_WINDOW					WM_USER+300
 #define WM_MESSAGEBOX						WM_USER+301
+
+
+//#define VLC_VIDEO
+
+
+extern map<string,string>IpTable;

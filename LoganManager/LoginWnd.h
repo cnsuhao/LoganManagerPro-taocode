@@ -25,6 +25,8 @@ private:
 	string Ip;
 	string Port;
 	map<string, vector<string>>userList;				//用户信息列表
+	COptionUI*    currentOpt;
+	bool         isCloud;
 protected:
 	void Notify(TNotifyUI& msg);
 	void OnBtnClose(TNotifyUI& msg);						//关闭

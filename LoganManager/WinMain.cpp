@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "LoginWnd.h"
 #include "MainWnd.h"
+#include "ClassMateWnd.h"
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
 					   HINSTANCE hPrevInstance,
@@ -32,7 +33,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	CPaintManagerUI::SetInstance(hInstance);
 	CPaintManagerUI::SetResourcePath(CPaintManagerUI::GetInstancePath());
-	CPaintManagerUI::SetResourceZip("loganskin.zip");
+	//CPaintManagerUI::SetResourceZip("loganskin.zip");
 	
 
 	CLoginWnd* Login  = new CLoginWnd();
@@ -44,11 +45,19 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	{
 		CMainWnd* mm  = new CMainWnd();
 		CMainWnd::pwnd=mm;
-		mm->Create(NULL, _T("主窗口"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
+		mm->Create(NULL, _T("主窗口"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE|WS_EX_TOPMOST);
 		mm->SetIcon(IDI_LOGANMANAGER);
 		mm->CenterWindow();
 		mm->ShowModal();
 
+	}
+	else if(res==10086)
+	{
+		ClassMateWnd *cls = new ClassMateWnd();
+		cls->Create(NULL,_T("classMate"),UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
+		cls->SetIcon(IDI_LOGANMANAGER);
+		cls->CenterWindow();
+		cls->ShowModal();
 	}
 	
 	::CoUninitialize();

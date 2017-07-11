@@ -12,8 +12,8 @@ typedef struct
 	string									ip;
 	string									port;
 	string									token;
-	ServerModel						model;
-	map<string,string>				URL;
+	ServerModel						    model;
+	map<string,string>				        URL;
 }_videoURL;
 namespace DuiLib
 {
@@ -88,13 +88,13 @@ namespace DuiLib
 
 	public:
 		bool            m_bConnect;
-		CDuiString		m_strIP;
-		int				m_nPort;
+		CDuiString		   m_strIP;
+		int			   m_nPort;
 
 	protected:
-		CCamCtrolUI*	m_pOwner;
+		CCamCtrolUI*	    m_pOwner;
 		int				m_iDownCount;
-		CDuiString		m_sDevID;
+		CDuiString		    m_sDevID;
 
 	private:
 		//////////////////////////////////////////////////////////////////////////
@@ -191,7 +191,12 @@ namespace DuiLib
 		CVNCWnd*   m_pWndUp;
 		CCamWndParent* m_pWndParent;
 		CtrlWnd				*ctrlwnd;
-		IMediaPlayer		*player;//video
+#ifdef VLC_VIDEO
+	IMediaPlayer		*player;//video
+#else
+	ILivePlayer       *player;
+#endif
+		
 		
 		_videoURL			videosrc;
 		Router				*router;

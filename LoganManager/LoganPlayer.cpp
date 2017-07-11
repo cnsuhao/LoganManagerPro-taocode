@@ -80,7 +80,7 @@ bool LoganPlayer::play(const std::string &path)
 		{
 			libvlc_media_add_option(m,"network-caching=0");
 			
-			libvlc_video_set_mouse_input(player, 0);
+			libvlc_video_set_mouse_input(player, 1);
 			libvlc_media_player_set_hwnd(player, hwnd);
 			libvlc_media_player_play(player);
 			//libvlc_audio_set_delay(player,0);
@@ -232,6 +232,7 @@ libvlc_time_t LoganPlayer::getTotaltime()
 	{
 		return libvlc_media_player_get_length(player);
 	}
+	return 0;
 }
 
 libvlc_time_t LoganPlayer::getTime()
