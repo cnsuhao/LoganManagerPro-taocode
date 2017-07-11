@@ -5,7 +5,7 @@
 #include "HttpRequest.h"
 #include "LoganPlayer.h"
 #include "Command.h"
-
+#include "ILivePlayer.h"
 
 
 //把服务器请求得到的url转换成本地的
@@ -60,11 +60,13 @@ public:
 	CDuiString GetSkinFile();
 	CControlUI *CreateControl(LPCTSTR pstrClass);
 	CDuiString GetSkinFolder();
+	string selprecall;
 	void ShowMessage(CDuiString sContext,bool bModel=false,bool bAutoClose=false,int iTime=0,bool bNeedBtnCancle = true);
 protected:
 	void Init();
 	void Notify(TNotifyUI& msg);
 	LRESULT OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 	LRESULT OnKeyDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 	void OnBtnClose(TNotifyUI& msg);						//关闭
 	void OnBtnMin(TNotifyUI& msg);						//最小化
@@ -119,16 +121,17 @@ public:
 	void UpdateToolBar();
 private:
 	int preplc;
+	int selview;
 	RECT windowsRect;
 	vector<_videoURL>					videoURL;		//视频流信息
-	PTP_POOL								tPool;             //线程池
-	TP_CALLBACK_ENVIRON			pcbe;				//线程池环境变量
-	int											videoNum;						//视频宫格数
-	int											camLayoutCount;
-	int											currentPage;
-	int											pageCount;	
-	CTextUI									*page;
-	CCamLayoutUI						*camLayout;					//视频布局
+	PTP_POOL						tPool;        //线程池
+	TP_CALLBACK_ENVIRON			    pcbe;		//线程池环境变量
+	int								videoNum;		//视频宫格数
+	int								camLayoutCount;
+	int								currentPage;
+	int								pageCount;	
+	CTextUI							*page;
+	CCamLayoutUI						*camLayout;	//视频布局
 	void ChangeTabSelect(int iParent,int iSub);			//Tab 切换
 	void InitThreadPool();
 	void AddWorkToThreadPool(PTP_SIMPLE_CALLBACK,PVOID);
@@ -147,7 +150,11 @@ protected:
 	static Router* router;
 public:
 	_videoURL vl;
+#if   defined(VLC_VIDEO)
 	IMediaPlayer		*mediaPlayer;//video
+#else
+	ILivePlayer       *mediaPlayer; 
+#endif
 	CCamCtrolUI *camCtrl;
 	int view;
 	int speed;

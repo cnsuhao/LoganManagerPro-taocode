@@ -4,7 +4,7 @@
 #include "DataBase.h"
 #include "ReadConfig.h"
 #include "HttpRequest.h"
-
+#include "ConfigFile.h"
 CLoginWnd::CLoginWnd()
 {
 	bRem = false;
@@ -12,6 +12,8 @@ CLoginWnd::CLoginWnd()
 	user=NULL;
 	pwd=NULL;
 	TabSelect = NULL;
+	currentOpt = NULL;
+	isCloud =false;
 }
 
 
@@ -93,6 +95,7 @@ void CLoginWnd::Notify(TNotifyUI& msg)
 	{
 		OnReturn(msg);
 	}
+	//OutputDebugStringA(msg.sType);
 }
 void CLoginWnd::OnBtnClose(TNotifyUI& msg)
 {
@@ -111,7 +114,7 @@ void CLoginWnd::OnBtnLogin(TNotifyUI& msg)
 	if(!user->GetText().IsEmpty()&&!pwd->GetText().IsEmpty())
 	{
 		TabSelect->SelectItem(2);
-		SetTimer(m_hWnd,TIME_LOGIN_ID,3000,NULL);
+		SetTimer(m_hWnd,TIME_LOGIN_ID,2000,NULL);
 	}
 	else
 	{
@@ -124,11 +127,16 @@ void CLoginWnd::OnBtnOkCancle(TNotifyUI& msg)
 	if (msg.pSender->GetName() == BTN_OK)
 	{
 		WriteConfig();
+		user->RemoveAll();
+		LoadUser();
+		user->SelectItem(0);
 	}
 	if (msg.pSender->GetName() == BTN_CANCLE)
 	{
 		ReadConfig();
 	}
+	ReadConfig();
+	WriteConfig();
 	TabSelect->SelectItem(0);
 }
 void CLoginWnd::OnBtnLogout(TNotifyUI& msg)
@@ -175,13 +183,42 @@ void CLoginWnd::OnOptionSelect(TNotifyUI& msg)
 	{
 		bAuto = !bAuto;
 	}
+
+	COptionUI *opt_ctrl=static_cast<COptionUI*>(m_PaintManager.FindControl("opt_ctrl"));
+	COptionUI *opt_local=static_cast<COptionUI*>(m_PaintManager.FindControl("opt_local"));
+	if(msg.pSender->GetName()==_T("opt_ctrl"))
+	{
+		if(opt_ctrl->IsSelected())
+		{
+			currentOpt = opt_ctrl;
+			isCloud = true;
+		}		
+	}
+
+	if(msg.pSender->GetName()==_T("opt_local"))
+	{
+		if(opt_local->IsSelected())
+		{
+			currentOpt = opt_local;
+			isCloud = false;
+		}
+		
+	}
+	if(currentOpt)
+	{
+	  OutputDebugStringA(currentOpt->GetName());
+	}
+	
 }
 
 
 
 void CLoginWnd::Init()
 {
-	
+	COptionUI *opt_ctrl=static_cast<COptionUI*>(m_PaintManager.FindControl("opt_ctrl"));
+	COptionUI *opt_local=static_cast<COptionUI*>(m_PaintManager.FindControl("opt_local"));
+	opt_ctrl->SetGroup("fuck");
+	opt_local->SetGroup("fuck");
 	if (!TabSelect)
 	{
 		TabSelect = static_cast<CAnimationTabLayoutUI*>(m_PaintManager.FindControl(TAB_NAME));
@@ -199,6 +236,8 @@ void CLoginWnd::Init()
 		PassWord=pwd->GetText().GetData();
 	}
 
+	ifstream inToFile;
+	inToFile.open(IPFILE, std::ios::in);
 	//读取配置
 	ReadConfig();
 	//加载用户信息
@@ -223,7 +262,63 @@ LRESULT CLoginWnd::OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		userName=user->GetText().GetData();
 		PassWord=pwd->GetText().GetData();
-		netCode code=HttpRequest::LogIn(Ip,Port,cloud,userName,PassWord);
+		netCode code;
+		if(isCloud)
+		{
+			code=HttpRequest::LogIn(Ip,Port,cloud,userName,PassWord);
+			CFG *cfg=CFG::GetConfig();
+			if(code.status)
+			{
+				cfg->ip=Ip;
+				cfg->port=Port;
+				cfg->token=code.msg;
+				UpLoadUser();
+				KillTimer(m_hWnd,TIME_LOGIN_ID);
+				Close(IDOK);
+			}
+		}
+		else
+		{
+
+			code=HttpRequest::LogIn(Ip,Port,embed,userName,PassWord);
+			CFG *cfg=CFG::GetConfig();
+			if(code.status)
+			{
+				ConfigFile newcfg("../bin/config/banban.conf");
+				newcfg.addValue("ip",Ip,"localLogin");
+				newcfg.addValue("port",Port,"localLogin");
+				newcfg.addValue("user",userName,"localLogin");
+				newcfg.addValue("pwd",PassWord,"localLogin");
+				newcfg.addValue("env","0","dev");
+				newcfg.save();
+				cfg->ip=Ip;
+				cfg->port=Port;
+				cfg->token=code.msg;
+				UpLoadUser();
+				KillTimer(m_hWnd,TIME_LOGIN_ID);
+				Close(10086);
+			}
+			else
+			{
+				code=HttpRequest::LogIn(Ip,Port,iMac,userName,PassWord);
+				if(code.status)
+				{
+					ConfigFile newcfg("../bin/config/banban.conf");
+					newcfg.addValue("ip",Ip,"localLogin");
+					newcfg.addValue("port",Port,"localLogin");
+					newcfg.addValue("user",userName,"localLogin");
+					newcfg.addValue("pwd",PassWord,"localLogin");
+					newcfg.addValue("env","1","dev");
+					newcfg.save();
+					cfg->ip=Ip;
+					cfg->port=Port;
+					cfg->token=code.msg;
+					UpLoadUser();
+					KillTimer(m_hWnd,TIME_LOGIN_ID);
+					Close(10086);
+				}
+			}
+		}
 		CFG *cfg=CFG::GetConfig();
 		if(code.status)
 		{
@@ -306,7 +401,8 @@ void CLoginWnd::LoadUser()
 	}
 
 	//显示
-	
+	user->RemoveAll();
+	pwd->SetText("");
 	for(map<string, vector<string>>::iterator i=userList.begin();i!=userList.end();i++)
 	{
 		CListLabelElementUI* L=new CListLabelElementUI();
@@ -314,6 +410,12 @@ void CLoginWnd::LoadUser()
 		user->Add(L);
 	}
 	user->SelectItem(0);
+	pwd->SetText(userList.begin()->second[0].c_str());
+	if(userList.begin()->second[2]=="1")
+	{
+		CButtonUI *btn=static_cast<CButtonUI*>(m_PaintManager.FindControl(BTN_LOGIN));
+		m_PaintManager.SendNotify(btn,DUI_MSGTYPE_CLICK,0,0);
+	}
 
 }
 void CLoginWnd::UpLoadUser()

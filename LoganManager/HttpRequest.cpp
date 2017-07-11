@@ -38,15 +38,15 @@ netCode HttpRequest::startRequestSimple(string httpArg)
 		{
 			if(strcmp(i->Value(),"type")==0)
 			{
-				type=string(i->FirstChild()->Value());
+				type=CMyCharConver::UTF8ToANSI(string(i->FirstChild()->Value()));
 			}
 			else if(strcmp(i->Value(),"code")==0)
 			{
-				code=string(i->FirstChild()->Value());
+				code=CMyCharConver::UTF8ToANSI(string(i->FirstChild()->Value()));
 			}
 			else if(strcmp(i->Value(),"msg")==0)
 			{
-				msg=string(i->FirstChild()->Value());
+				msg=CMyCharConver::UTF8ToANSI(string(i->FirstChild()->Value()));
 			}
 		}
 		if(code=="1")

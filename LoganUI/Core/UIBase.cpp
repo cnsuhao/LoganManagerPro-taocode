@@ -222,7 +222,7 @@ m_bFullScreenMode(false)
 
 HWND CWindowWnd::GetHWND() const 
 { 
-			    return m_hWnd; 
+	return m_hWnd; 
 }
 
 UINT CWindowWnd::GetClassStyle() const

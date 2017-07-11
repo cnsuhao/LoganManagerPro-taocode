@@ -36,6 +36,8 @@ void CMainWnd::XCmd(const char* ip,u_short port,Command cmd)//
 CMainWnd::CMainWnd(void)
 {
 	videoNum=2;
+	selview=1;
+	selprecall="";
 	camLayoutCount=0;
 	currentPage=1;
 	pageCount=1;
@@ -101,6 +103,26 @@ CDuiString CMainWnd::GetSkinFolder()
 
 	return _T("Skin");
 
+}
+LRESULT CMainWnd::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam)
+{
+	if(uMsg ==WM_MOUSEMOVE)
+	{
+		POINT pt;
+		::GetCursorPos(&pt);
+		::ScreenToClient(*this,&pt);
+		CTabLayoutUI *lay =static_cast<CTabLayoutUI*>(m_PaintManager.FindControl("toollay"));
+		//int xx=lay->GetPos().top;
+		if(lay->GetCurSel()!=0)
+		{
+			if(pt.y<lay->GetPos().top)
+			{
+				lay->SelectItem(0);
+			}
+		}
+		return __super::HandleMessage(uMsg, wParam, lParam);
+	}
+	return __super::HandleMessage(uMsg, wParam, lParam);
 }
 LRESULT CMainWnd::OnTimer(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
@@ -277,8 +299,8 @@ void CALLBACK CtrlPlace(PTP_CALLBACK_INSTANCE Instance,PVOID Context)
 	Router* rt=Router::getRouter();
 	stringstream sStream;
 	string args;
-	char *plc=static_cast<char*>(Context);
-	sStream<<"&view="<<rt->view<<plc;
+	CMainWnd* pthis=(CMainWnd*)Context;
+	sStream<<"&view="<<rt->view<<pthis->selprecall;
 	sStream>>args;
 	sStream.clear();
 	HttpRequest::PlaceControl(rt->vl.ip,rt->vl.port,rt->vl.model,rt->vl.token,args);
@@ -789,9 +811,16 @@ void CMainWnd::OnSelectRoomItem(TNotifyUI& msg)
 						Assign(rt->camCtrl->videosrc,videoURL[curIndex]);
 						if(rt->mediaPlayer)
 						{
+#if   defined(VLC_VIDEO)
 							rt->mediaPlayer->stop();
 							rt->mediaPlayer->play(rt->vl.URL["play"]);
 
+#else
+							//rt->mediaPlayer->Stop();
+							//rt->mediaPlayer->Load("F:\\test.mov");
+							rt->mediaPlayer->Load(rt->vl.URL["play"]);
+#endif
+							
 						}
 						
 					}
@@ -823,8 +852,13 @@ void CMainWnd::OnSelectPlayStream(TNotifyUI& msg)
 			else if(camLayout->GetItem(sId)->menu->GetText()==SUBURL)
 			{
 			camLayout->GetItem(sId)->videosrc.URL["play"]=camLayout->GetItem(sId)->videosrc.URL["sublurl"];
-			}	
+			}
+#if   defined(VLC_VIDEO)
 			camLayout->GetItem(sId)->player->play(camLayout->GetItem(sId)->videosrc.URL["play"]);
+#else
+			camLayout->GetItem(sId)->player->Load(camLayout->GetItem(sId)->videosrc.URL["play"]);
+#endif
+			
 		}
 	}
 }
@@ -858,51 +892,52 @@ void CMainWnd::OnPrePlace(TNotifyUI &msg)
 		{
 			if(msg.pSender->GetName()=="opt_pre_1")
 			{
-				char p[100]="&precall=1";
 				preplc=1;
-				AddWorkToThreadPool(CtrlPlace,p);
+				selprecall="&precall=1";
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 			else if(msg.pSender->GetName()=="opt_pre_2")
 			{
-				char p[100]="&precall=2";
+
 				preplc=2;
-				AddWorkToThreadPool(CtrlPlace,p);
+				selprecall="&precall=2";
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 			else if(msg.pSender->GetName()=="opt_pre_3")
 			{
-				char p[100]="&precall=3";
 				preplc=3;
-				AddWorkToThreadPool(CtrlPlace,p);
+				selprecall="&precall=3";
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 			else if(msg.pSender->GetName()=="opt_pre_4")
 			{
-				char p[100]="&precall=4";
 				preplc=4;
-				AddWorkToThreadPool(CtrlPlace,p);
+				selprecall="&precall=4";
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 			else if(msg.pSender->GetName()=="opt_pre_5")
 			{
-				char p[100]="&precall=5";
 				preplc=5;
-				AddWorkToThreadPool(CtrlPlace,p);
+				selprecall="&precall=5";
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 			else if(msg.pSender->GetName()=="opt_pre_6")
 			{
-				char p[100]="&precall=6";
 				preplc=6;
-				AddWorkToThreadPool(CtrlPlace,p);
+				selprecall="&precall=6";
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 			else if(msg.pSender->GetName()=="opt_pre_7")
 			{
-				char p[100]="&precall=7";
 				preplc=7;
-				AddWorkToThreadPool(CtrlPlace,p);
+				selprecall="&precall=7";
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 			else if(msg.pSender->GetName()=="opt_pre_8")
 			{
-				char p[100]="&precall=8";
 				preplc=8;
-				AddWorkToThreadPool(CtrlPlace,p);
+				selprecall="&precall=8";
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 		}
 		if(msg.sType==DUI_MSGTYPE_CLICK)
@@ -911,9 +946,8 @@ void CMainWnd::OnPrePlace(TNotifyUI &msg)
 			{
 				char p[100];
 				sprintf(p,"&preset=%d",preplc);
-				char q[100];
-				strcpy(q,p);
-				AddWorkToThreadPool(CtrlPlace,q);
+				selprecall=string(p);
+				AddWorkToThreadPool(CtrlPlace,this);
 			}
 			
 		}
@@ -1044,7 +1078,7 @@ void CMainWnd::Notify(TNotifyUI& msg)
 	}
 	if(msg.sType==DUI_MSGTYPE_CLICK)
 	{
-		OnSelectView(msg);
+		//OnSelectView(msg);
 		OnBtnSwitch(msg);
 		if(msg.pSender->GetName()==BTN_CLOSE)
 		{
@@ -1128,6 +1162,41 @@ void CMainWnd::Notify(TNotifyUI& msg)
 		{
 			OnBtnPageDown(msg);
 		}
+		else if(msg.pSender->GetName()==_T("btn_next"))
+		{
+			CLabelUI *lab =static_cast<CLabelUI*>(m_PaintManager.FindControl(_T("lab_view")));
+			if(selview==6)
+			{
+				selview=1;
+			}
+			else
+			{
+				++selview;
+			}
+			CDuiString s;
+			s.Format("%d",selview);
+			lab->SetText(s);
+			Router *rt=Router::getRouter();
+			rt->view=selview-1;
+		}
+		else if(msg.pSender->GetName()==_T("btn_back"))
+		{
+			CLabelUI *lab =static_cast<CLabelUI*>(m_PaintManager.FindControl(_T("lab_view")));
+			if(selview==1)
+			{
+				selview=6;
+			}
+			else
+			{
+				--selview;
+			}
+			CDuiString s;
+			s.Format("%d",selview);
+			lab->SetText(s);
+
+			Router *rt=Router::getRouter();
+			rt->view=selview-1;
+		}
 	}//end click
 
 	if(msg.sType==DUI_MSGTYPE_ITEMSELECT)
@@ -1149,6 +1218,32 @@ void CMainWnd::Notify(TNotifyUI& msg)
 	if(msg.sType==DUI_MSGTYPE_VALUECHANGED)
 	{
 		OnSoundCtrl(msg);
+	}
+
+	if(msg.sType==DUI_MSGTYPE_MOUSEENTER)
+	{
+		CTabLayoutUI *lay =static_cast<CTabLayoutUI*>(m_PaintManager.FindControl("toollay"));
+		if(msg.pSender->GetName()==_T("btn_ctrl"))
+		{
+			lay->SelectItem(1);
+		}
+		else if(msg.pSender->GetName()==_T("btn_envo"))
+		{
+			lay->SelectItem(2);
+		}
+		else if(msg.pSender->GetName()==_T("btn_sound"))
+		{
+			lay->SelectItem(3);
+		}else if(msg.pSender->GetName()==_T("btn_touying"))
+		{
+			lay->SelectItem(4);
+		}else if(msg.pSender->GetName()==_T("btn_door"))
+		{
+			lay->SelectItem(5);
+		}else if(msg.pSender->GetName()==_T("btn_ban"))
+		{
+			lay->SelectItem(6);
+		}
 	}
 
 }
